@@ -3,7 +3,7 @@ import './App.css';
 import React, { useState } from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, HashRouter} from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 
 const App = ()=> {
@@ -13,6 +13,7 @@ const App = ()=> {
  
     return (
       <div>
+      <HashRouter basename="/">
         <Router>
         <NavBar/> 
         <LoadingBar
@@ -31,6 +32,7 @@ const App = ()=> {
           <Route exact path="/technology"><News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={pageSize} country="in" category="technology"/></Route> 
         </Switch>
         </Router>
+        </HashRouter>
       </div>
     )
  
